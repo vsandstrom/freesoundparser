@@ -1,0 +1,19 @@
+{
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "permissions": ["activeTab, scripting, tabs"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.freesound.org/*"],
+      "js": ["scrape.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": ["background.js"]
+}
