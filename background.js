@@ -1,11 +1,4 @@
-let url = /^https?:\/\/(?:[^./?#]+\.)?freesound\.org/;
-let msg = "";
-
-chrome.runtime.onMessage.addListener(function(request, _sender) {
-  console.log(request.message);
-  console.log(request.url);
-  msg = request.message;
-  document.getElementById("ans").innerHTML = msg;
+// will not trigger if the extension has a popup
+chrome.action.onClicked.addListener(function(tab) {
+  chrome.tabs.sendMessage(tab.id, "plz");
 });
-
-
